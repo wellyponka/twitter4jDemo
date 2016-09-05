@@ -46,7 +46,8 @@ public class Account {
         String verifier = request.getParameter("oauth_verifier");
         try {
             twitter.getOAuthAccessToken(requestToken, verifier);
-            System.out.println("User name : "+twitter.getAccountSettings().getScreenName());
+            System.out.println("User name : "+twitter.getScreenName());
+            System.out.println("User ID : "+twitter.getId());
             request.getSession().removeAttribute("requestToken");
         } catch (TwitterException e) {
             throw new ServletException(e);
